@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+
+  <title>Frontend Mentor | Browser extensions manager UI</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <div id="header" class="header">
+      <img id="logo" class="logo" alt="logo" src="./assets/images/logo.svg">
+      <button id="theme-btn" class="theme-icon" onclick="toggleTheme()">
+        <img id="theme-icon" alt="theme-icon" src="./assets/images/icon-moon.svg">
+      </button>
+    </div>
+    <div class="button-panel">
+      <h1 id="list-name">
+        Extensions List
+      </h1>
+      <div class="">
+        <button id="all" class="all-btn" onclick="selectAll()">All</button>
+        <button id="active" onclick="selectActive()">Active</button>
+        <button id="inactive" onclick="selectInactive()">Inactive</button>
+      </div>
+    </div>
+    <div class="list">
+      <div id="extension-1" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-devlens" src="./assets/images/logo-devlens.svg">
+          <div>
+            <h2>DevLens</h2>
+            <p>Quickly inspect page layouts and visualize element boundaries.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-1')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div id="extension-2" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-style-spy" src="./assets/images/logo-style-spy.svg">
+          <div>
+            <h2>StyleSpy</h2>
+            <p>Instantly analyze and copy CSS from any webpage element.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-2')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div id="extension-3" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-speed-boost" src="./assets/images/logo-speed-boost.svg">
+          <div>
+            <h2>SpeedBoost</h2>
+            <p>Optimizes browser resource usage to accelerate page loading.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-3')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div id="extension-4" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-json-wizard" src="./assets/images/logo-json-wizard.svg">
+          <div>
+            <h2>JSONWizard</h2>
+            <p>Formats, validates, and prettifies JSON responses in-browser.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-4')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div id="extension-5" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-tab-master-pro" src="./assets/images/logo-tab-master-pro.svg">
+          <div>
+            <h2>TabMaster Pro</h2>
+            <p>Organizes browser tabs into groups and sessions.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-5')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div id="extension-6" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-viewport-buddy" src="./assets/images/logo-viewport-buddy.svg">
+          <div>
+            <h2>ViewportBuddy</h2>
+            <p>Simulates various screen resolutions directly within the browser.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-6')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div id="extension-7" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-markup-notes" src="./assets/images/logo-markup-notes.svg">
+          <div>
+            <h2>Markup Notes</h2>
+            <p>Enables annotation and notes directly onto webpages for collaborative debugging.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-7')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div id="extension-8" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-grid-guides" src="./assets/images/logo-grid-guides.svg">
+          <div>
+            <h2>GridGuides</h2>
+            <p>Overlay customizable grids and alignment guides on any webpage.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-8')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div id="extension-9" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-palette-picker" src="./assets/images/logo-palette-picker.svg">
+          <div>
+            <h2>Palette Picker</h2>
+            <p>Instantly extracts color palettes from any webpage.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-9')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div id="extension-10" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-link-checker" src="./assets/images/logo-link-checker.svg">
+          <div>
+            <h2>LinkChecker</h2>
+            <p>Scans and highlights broken links on any page.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-10')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div id="extension-11" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-dom-snapshot" src="./assets/images/logo-dom-snapshot.svg">
+          <div>
+            <h2>DOM Snapshot</h2>
+            <p>Capture and export DOM structures quickly.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-11')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div id="extension-12" class="card">
+        <div class="card-detail">
+          <img class="list-icon" alt="logo-console-plus" src="./assets/images/logo-console-plus.svg">
+          <div>
+            <h2>ConsolePlus</h2>
+            <p>Enhanced developer console with advanced filtering and logging.</p>
+          </div>
+        </div>
+        <div class="card-buttons">
+          <button onclick="removeExtension('extension-12')">Remove</button>
+          <label class="toggle-switch">
+            <input type="checkbox" id="myToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>
