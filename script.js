@@ -61,7 +61,7 @@ function selectActive() {
     document.querySelector("#all").classList.remove("all-btn");
     document.querySelector("#active").classList.add("focus");
     [...grid.children].forEach(el => {
-        if (el.querySelector("#myToggle").checked) {
+        if (el.querySelector("input[type='checkbox']").checked) {
             el.style.display = "flex";
         } else {
             el.style.display = "none";
@@ -74,7 +74,7 @@ function selectInactive() {
     document.querySelector("#inactive").classList.add("focus");
     [...grid.children].forEach(el => {
         el.style.display = "none";
-        if (!el.querySelector("#myToggle").checked) {
+        if (!el.querySelector("input[type='checkbox']").checked) {
             el.style.display = "flex";
         } else {
             el.style.display = "none";
